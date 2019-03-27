@@ -1,0 +1,25 @@
+################### Yarnbeat Configuration Example #########################
+
+############################# Yarnbeat ######################################
+
+yarnbeat:
+  # Defines how often an event is sent to the output
+  period: 60
+
+  # List of resource manager URLs to try when polling the YARN API
+  resource_manager_urls:
+    - "http://localhost:8088"
+
+  # Set to true to enable MapReduce History Server integration
+  enable_mr: true
+  history_server_url: "http://localhost:9888"
+
+  # Configure which MapReduce counters should be included in the
+  # output, and what their field names should be
+  mr_counters:
+    - group_name: org.apache.hadoop.mapreduce.TaskCounter
+      counters:
+        # The format here is COUNTER_NAME: field_name
+        # counter fields will appear as "mapreduce.job.counters.field_name"
+        MAP_INPUT_RECORDS: map_input_records
+        MAP_OUTPUT_RECORDS: map_output_records

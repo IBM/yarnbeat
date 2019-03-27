@@ -1,0 +1,224 @@
+- key: yarnbeat
+  title: YARN Beat
+  description:
+  fields:
+    - name: type
+      type: keyword
+      description:
+    - name: yarn.app.id
+      type: keyword
+      description: 
+    - name: yarn.app.name
+      type: keyword
+      description: 
+    - name: yarn.app.tags
+      type: keyword
+      description: 
+    - name: yarn.app.type
+      type: keyword
+      description: 
+    - name: yarn.app.user
+      type: keyword
+      description: 
+    - name: yarn.app.state
+      type: keyword
+      description: 
+    - name: yarn.app.queue
+      type: keyword
+      description: 
+    - name: yarn.app.priority
+      type: long
+      description: 
+    - name: yarn.app.progress
+      type: long
+      description: 
+    - name: yarn.app.tracking_url
+      type: text
+      description: 
+    - name: yarn.app.container_logs
+      type: text
+      description: 
+    - name: yarn.app.start
+      type: date
+      description: 
+    - name: yarn.app.finish
+      type: date
+      description: 
+    - name: yarn.app.elapsed.ms
+      type: long
+      description: 
+    - name: yarn.app.final_status
+      type: keyword
+      description: 
+    - name: yarn.app.allocated.containers
+      type: long
+      description: 
+    - name: yarn.app.allocated.vcores
+      type: long
+      description: 
+    - name: yarn.app.allocated.mb
+      type: long
+      description:
+    - name: yarn.app.vcore_sec
+      type: long
+      description: 
+    - name: yarn.app.memory_sec
+      type: long
+      description: 
+    - name: yarn.app.preempted.containers
+      type: long
+      description: 
+    - name: yarn.app.preempted.mb
+      type: long
+      description:
+    - name: yarn.app.preempted.vcores
+      type: long
+      description: 
+    - name: yarn.cluster.apps.completed
+      type: long
+      description: 
+    - name: yarn.cluster.apps.failed
+      type: long
+      description: 
+    - name: yarn.cluster.apps.killed
+      type: long
+      description: 
+    - name: yarn.cluster.apps.pending
+      type: long
+      description: 
+    - name: yarn.cluster.apps.running
+      type: long
+      description: 
+    - name: yarn.cluster.apps.submitted
+      type: long
+      description:
+    - name: yarn.cluster.containers.allocated
+      type: long
+      description:
+    - name: yarn.cluster.containers.pending
+      type: long
+      description:
+    - name: yarn.cluster.containers.reserved
+      type: long
+      description:
+    - name: yarn.cluster.memory.allocated.mb
+      type: long
+      description:
+    - name: yarn.cluster.memory.available.mb
+      type: long
+      description:
+    - name: yarn.cluster.memory.reserved.mb
+      type: long
+      description:
+    - name: yarn.cluster.memory.total.mb
+      type: long
+      description:
+    - name: yarn.cluster.nodes.active
+      type: long
+      description:
+    - name: yarn.cluster.nodes.decommissioned
+      type: long
+      description:
+    - name: yarn.cluster.nodes.decommissioning
+      type: long
+      description:
+    - name: yarn.cluster.nodes.lost
+      type: long
+      description:
+    - name: yarn.cluster.nodes.rebooted
+      type: long
+      description:
+    - name: yarn.cluster.nodes.shutdown
+      type: long
+      description:
+    - name: yarn.cluster.nodes.total
+      type: long
+      description:
+    - name: yarn.cluster.nodes.unhealthy
+      type: long
+      description:
+    - name: yarn.cluster.vcores.allocated
+      type: long
+      description:
+    - name: yarn.cluster.vcores.available
+      type: long
+      description:
+    - name: yarn.cluster.vcores.reserved
+      type: long
+      description:
+    - name: yarn.cluster.vcores.total
+      type: long
+      description:
+    - name: mapreduce.job.id
+      type: keyword
+      description:
+    - name: mapreduce.job.name
+      type: keyword
+      description:
+    - name: mapreduce.job.queue
+      type: keyword
+      description:
+    - name: mapreduce.job.state
+      type: keyword
+      description:
+    - name: mapreduce.job.user
+      type: keyword
+      description:
+    - name: mapreduce.job.start_time
+      type: date
+      description:
+    - name: mapreduce.job.finish_time
+      type: date
+      description:
+    - name: mapreduce.job.submit_time
+      type: date
+      description:
+    - name: mapreduce.job.uberized
+      type: boolean
+      description:
+    - name: mapreduce.job.maps.attempts.failed
+      type: long
+      description:
+    - name: mapreduce.job.maps.attempts.killed
+      type: long
+      description:
+    - name: mapreduce.job.maps.attempts.successful
+      type: long
+      description:
+    - name: mapreduce.job.maps.avg_time
+      type: long
+      description:
+    - name: mapreduce.job.maps.completed
+      type: long
+      description:
+    - name: mapreduce.job.maps.total
+      type: long
+      description:
+    - name: mapreduce.job.merges.avg_time
+      type: long
+      description:
+    - name: mapreduce.job.reduces.attempts.failed
+      type: long
+      description:
+    - name: mapreduce.job.reduces.attempts.killed
+      type: long
+      description:
+    - name: mapreduce.job.reduces.attempts.successful
+      type: long
+      description:
+    - name: mapreduce.job.reduces.avg_time
+      type: long
+      description:
+    - name: mapreduce.job.reduces.completed
+      type: long
+      description:
+    - name: mapreduce.job.reduces.total
+      type: long
+      description:
+    - name: mapreduce.job.shuffles.avg_time
+      type: long
+      description:
+    - name: mapreduce.job.counters
+      type: group
+      dynamic: true
+      description:
