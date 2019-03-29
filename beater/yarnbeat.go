@@ -13,7 +13,7 @@ import (
 )
 
 var Name = "yarnbeat"
-var Version = "1.1.0"
+var Version = "1.1.1"
 
 type Yarnbeat struct {
 	config           config.Config

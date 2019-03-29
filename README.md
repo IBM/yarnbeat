@@ -35,7 +35,15 @@ yarnbeat:
         # counter fields will appear as "mapreduce.job.counters.field_name"
         MAP_INPUT_RECORDS: map_input_records
         MAP_OUTPUT_RECORDS: map_output_records
+    - group_name: My Custom Group
+      counters:
+        # Note that for MapReduce counter names containing the `.` character, the beats library will attempt 
+        # to parse the key value into a subpath.  To work around this, replace the `.` with `$$`. In the
+        # counter below, the MapReduce counter name would be `counter.with.periods`
+        counter$$with$$periods: counter_with_periods
 ```
+
+Note that for MapReduce counter names containing the `.` character, the beats library will attempt to parse the key value into a subpath.  To work around this, replace the `.` with `$$`.
 
 For information concerning valid Beats outputs, see the [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/6.6/configuring-output.html)
 

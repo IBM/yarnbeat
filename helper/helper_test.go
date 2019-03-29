@@ -51,7 +51,8 @@ func Test_SetMapReduceEventFields(t *testing.T) {
 	event := &beat.Event{Fields: common.MapStr{}}
 	counterConfig := []config.MapReduceCounterConfig{
 		{GroupName: "org.test.group.a", Counters: map[string]string{"counter1": "a.counter_1", "counter2": "a.counter_2"}},
-		{GroupName: "org.test.group.b", Counters: map[string]string{"counter1": "b.counter_1", "counter2": "b.counter_2"}},
+		{GroupName: "org.test.group.b", Counters: map[string]string{"counter$$1": "b.counter_1", "counter$$2": "b.counter_2"}},
+		{GroupName: "org.test.group.d", Counters: map[string]string{"myCounter": "d.my_counter"}},
 	}
 	job := mapreduce.Job{
 		Id:   "job_1234",
@@ -68,8 +69,8 @@ func Test_SetMapReduceEventFields(t *testing.T) {
 		{
 			CounterGroupName: "org.test.group.b",
 			Counters: []mapreduce.Counter{
-				{Name: "counter1", TotalCounterValue: 1},
-				{Name: "counter2", TotalCounterValue: 2}},
+				{Name: "counter.1", TotalCounterValue: 1},
+				{Name: "counter.2", TotalCounterValue: 2}},
 		},
 		{
 			CounterGroupName: "org.test.group.c",
@@ -95,7 +96,11 @@ func Test_SetMapReduceEventFields(t *testing.T) {
 
 	for k, tv := range valueTable {
 		if v, _ := event.Fields.GetValue(k); v == nil || v != tv {
-			t.Errorf("Counters value '%s' is %s, expected %s",k, v, tv)
+			t.Errorf("Counters value '%s' is %d, expected %d",k, v, tv)
 		}
+	}
+
+	if _, e := event.Fields.GetValue("mapreduce.job.counters.d.my_counter"); e == nil {
+		t.Errorf("Field mapreduce.job.counters.d.my_counter should not exist!")
 	}
 }

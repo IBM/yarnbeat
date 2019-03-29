@@ -61,11 +61,13 @@ func SetMapReduceEventFields(
 			counterMap[counter.Name] = counter
 		}
 		for k, v := range g.Counters {
-			counter := counterMap[k]
-			fieldName := fmt.Sprint("mapreduce.job.counters.", v)
-			_, err = event.Fields.Put(fieldName, counter.TotalCounterValue)
-			if err != nil {
-				return err
+			counterName := strings.Replace(k, "$$", ".", -1)
+			if counter, ok := counterMap[counterName]; ok {
+				fieldName := fmt.Sprint("mapreduce.job.counters.", v)
+				_, err = event.Fields.Put(fieldName, counter.TotalCounterValue)
+				if err != nil {
+					return err
+				}
 			}
 		}
 	}
