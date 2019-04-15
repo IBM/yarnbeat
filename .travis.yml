@@ -1,6 +1,5 @@
 dist: xenial
 language: go
-sudo: false
 go:
   - 1.12.x
 
